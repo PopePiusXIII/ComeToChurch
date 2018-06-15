@@ -9,7 +9,7 @@ import Kinematics as Kin
 import numpy as np
 from collections import OrderedDict
 import copy
-import Motec_Import as Motec
+# import Motec_Import as Motec
 matplotlib.use('TkAgg')
 
 
@@ -112,8 +112,8 @@ class HarleyTires(Ttk.Tk):
                 bracket_flag = False    # check for the start of comment separated data
                 for string in split_line:
                     if '[' in string:   # if open bracket append data by split spaces until closing bracket
-                        bracket_flag =True
-                        string = string[1:] # delete '[' so no float errors boii
+                        bracket_flag = True
+                        string = string[1:]  # delete '[' so no float errors boii
 
                     if bracket_flag:
                         string = string.translate(None, '] ')
