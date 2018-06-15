@@ -4,7 +4,7 @@ import matplotlib.pyplot as plt
 from collections import OrderedDict
 import copy
 
-
+# COLLIN DO YOU HAVE ANY IDEA WHAT YOURE DOING
 def fy_data_collector(file_path):
     """import .dat file from calspan and return raw and filtered/sorted data arrays of shape
         filtered[speed][pressure][camber][slip_sign][load][data_point]
