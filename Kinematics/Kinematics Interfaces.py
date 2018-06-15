@@ -475,7 +475,7 @@ class Simulation(Ttk.Frame):
         # Button to Run bumpsim and evaluation from Kinematics.py
         Ttk.Button(self.entry_frame, text='RUN HEAVE',
                    command=lambda: self.sim_results_set(self.motion_heave_binding, 'Heave', 'Left Front',
-                                                        'Right Front')).grid(row=3, column=1)
+                                                        'Right Front', 'Right Rear', 'Left Rear')).grid(row=3, column=1)
         Ttk.Button(self.button_frame, text='Kinematics', command=lambda: controller.show_frame(Kinematics)).grid()
         Ttk.Button(self.button_frame, text='Graph', command=self.graph_gui).grid(row=0, column=1)
 
@@ -492,10 +492,12 @@ class Simulation(Ttk.Frame):
 
         # ---------------BUMP BUTTONS--------------------
         # Button to Run bumpsim and evaluation from Kinematics.py
-        Ttk.Button(self.entry_frame, text='RUN BUMP', command=lambda: self.sim_results_set(self.motion_bump_binding,
-                                                                                           'Bump',
-                                                                                           'Left Front', 'Right Front'
-                                                                                           )).grid(row=6, column=1)
+        Ttk.Button(self.entry_frame, text='RUN BUMP FRONT',
+                   command=lambda: self.sim_results_set(self.motion_bump_binding, 'Bump',
+                                                        'Right Front', 'Left Front')).grid(row=6, column=0)
+        Ttk.Button(self.entry_frame, text='RUN BUMP REAR',
+                   command=lambda: self.sim_results_set(self.motion_bump_binding, 'Bump',
+                                                        'Right Rear', 'Left Rear')).grid(row=6, column=2)
         # ----------------Wheel Displacement-----------------
         Ttk.Label(self.wheel_disp_button_frame,
                   text='Wheel Displacement ([Weight], [Spring], '

@@ -481,14 +481,11 @@ def sim_evaluation(orig_points, sim_points, motion, *corners):
         ('Bump Heave Damper MR', []),
         ('Bump Roll Damper MR', [])])
 
-    for corner in range(1):
-        for value in sim_points[corners[0]]['Pushrod Control Arm']:
-            # print 'value 1', value
-            # each corner has its own set of evaluations
-            post_eval_dict = OrderedDict([('Left Front', deepcopy(evaluations)),
-                                      ('Right Front', deepcopy(evaluations)),
-                                      ('Left Rear', deepcopy(evaluations)),
-                                      ('Right Rear', deepcopy(evaluations))])
+    # each corner has its own set of evaluations
+    post_eval_dict = OrderedDict([('Left Front', deepcopy(evaluations)),
+                                  ('Right Front', deepcopy(evaluations)),
+                                  ('Left Rear', deepcopy(evaluations)),
+                                  ('Right Rear', deepcopy(evaluations))])
 
     if motion == 'Heave':    # temporary patch to differentiate between one wheel bump and heave
         for key in corners:
