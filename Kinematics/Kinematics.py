@@ -950,3 +950,18 @@ def wheel_disp_compare_plot(dictionary, a_x, a_y, corner_weights_static, time, d
     plt.legend()
     plt.show()
     return lat_tire_force, long_tire_force
+
+
+def anti_squat_percent(ic_xz, wheel_center, wheel_base, center_gravity_height):
+    """Takes longitudinal instant center, wheel base, wheel center, and cgh, and calculates the percentage """
+    # adjust wheel center to be on center plane
+    wc = np.subtract(wheel_center, np.array([0, (wheel_center[1]), 0]))
+    ic = np.subtract(ic_xz, np.array([0, (ic_xz[1]), 0]))
+    #  using angle finder from longitudinal instant center to wheel center.
+    as_angle = (two_d_horizontal_angle([wheel_center[0], wheel_center[2]], [ic_xz[0], ic_xz[1]])) * math.pi / 180
+    #  calculates anti-squat percent from tan(angle)*(WB/c of g height) * 100
+    print "cooockaock", as_angle
+    as_tan = math.tan(as_angle)
+    print "tancock", as_tan
+    as_percent = as_tan * (wheel_base/center_gravity_height) * 100
+    return as_percent
