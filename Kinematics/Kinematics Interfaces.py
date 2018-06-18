@@ -9,7 +9,7 @@ import Kinematics as Kin
 import numpy as np
 from collections import OrderedDict
 import copy
-import Motec_Import as Motec
+# import Motec_Import as Motec
 matplotlib.use('TkAgg')
 
 
@@ -112,8 +112,8 @@ class HarleyTires(Ttk.Tk):
                 bracket_flag = False    # check for the start of comment separated data
                 for string in split_line:
                     if '[' in string:   # if open bracket append data by split spaces until closing bracket
-                        bracket_flag =True
-                        string = string[1:] # delete '[' so no float errors boii
+                        bracket_flag = True
+                        string = string[1:]  # delete '[' so no float errors boii
 
                     if bracket_flag:
                         string = string.translate(None, '] ')
@@ -405,20 +405,24 @@ class Kinematics(Ttk.Frame):
         Ttk.Label(self.analysis_frame,
                   text='%.3f ' % (np.subtract(HarleyTires.full_car[key[2]]['Center of Gravity'], as_height))[2]
                   ).grid(row=16, column=1, sticky='w')
-
+        # Anti-squat% Label
+        Ttk.Label(self.analysis_frame, text='Anti-squat %').grid(row=17, column=0, sticky='w')
+        Ttk.Label(self.analysis_frame,
+                  text='%.3f ' % (Kin.anti_squat_percent(ic_xz, HarleyTires.full_car[key[0]]['Wheel Center'], 62.0,
+                                                          HarleyTires.full_car[key[2]]['Center of Gravity'][2]))
+                  ).grid(row=17, column=1, sticky='w')
         # Small Step Motion Ratio Label
         sim_results = Kin.bump_sim(np.linspace(0, .01, 2), np.linspace(0, .00001, 2),
                                    HarleyTires.full_car, 'Bump', key[0], key[1])
         sim_eval_results = Kin.sim_evaluation(HarleyTires.full_car, sim_results, "Bump", key[0], key[1])
-
-        Ttk.Label(self.analysis_frame, text='Bump MR').grid(row=17, column=0, sticky='w')
+        Ttk.Label(self.analysis_frame, text='Bump MR').grid(row=18, column=0, sticky='w')
         Ttk.Label(self.analysis_frame, text='%.3f ' % sim_eval_results[key[0]]['Bump Heave Damper MR'][0]
-                  ).grid(row=17, column=1, sticky='w')
+                  ).grid(row=18, column=1, sticky='w')
 
         # Small step bump roll motion ratio
-        Ttk.Label(self.analysis_frame, text='Roll MR').grid(row=18, column=0, sticky='w')
+        Ttk.Label(self.analysis_frame, text='Roll MR').grid(row=19, column=0, sticky='w')
         Ttk.Label(self.analysis_frame, text='%.3f ' % sim_eval_results[key[0]]['Bump Roll Damper MR'][0]
-                  ).grid(row=18, column=1, sticky='w')
+                  ).grid(row=19, column=1, sticky='w')
 
         return
 
@@ -475,7 +479,7 @@ class Simulation(Ttk.Frame):
         # Button to Run bumpsim and evaluation from Kinematics.py
         Ttk.Button(self.entry_frame, text='RUN HEAVE',
                    command=lambda: self.sim_results_set(self.motion_heave_binding, 'Heave', 'Left Front',
-                                                        'Right Front')).grid(row=3, column=1)
+                                                        'Right Front', 'Right Rear', 'Left Rear')).grid(row=3, column=1)
         Ttk.Button(self.button_frame, text='Kinematics', command=lambda: controller.show_frame(Kinematics)).grid()
         Ttk.Button(self.button_frame, text='Graph', command=self.graph_gui).grid(row=0, column=1)
 
@@ -492,10 +496,12 @@ class Simulation(Ttk.Frame):
 
         # ---------------BUMP BUTTONS--------------------
         # Button to Run bumpsim and evaluation from Kinematics.py
-        Ttk.Button(self.entry_frame, text='RUN BUMP', command=lambda: self.sim_results_set(self.motion_bump_binding,
-                                                                                           'Bump',
-                                                                                           'Left Front', 'Right Front'
-                                                                                           )).grid(row=6, column=1)
+        Ttk.Button(self.entry_frame, text='RUN BUMP FRONT',
+                   command=lambda: self.sim_results_set(self.motion_bump_binding, 'Bump',
+                                                        'Right Front', 'Left Front')).grid(row=6, column=0)
+        Ttk.Button(self.entry_frame, text='RUN BUMP REAR',
+                   command=lambda: self.sim_results_set(self.motion_bump_binding, 'Bump',
+                                                        'Right Rear', 'Left Rear')).grid(row=6, column=2)
         # ----------------Wheel Displacement-----------------
         Ttk.Label(self.wheel_disp_button_frame,
                   text='Wheel Displacement ([Weight], [Spring], '

@@ -481,10 +481,8 @@ def sim_evaluation(orig_points, sim_points, motion, *corners):
         ('Bump Heave Damper MR', []),
         ('Bump Roll Damper MR', [])])
 
-    for value in sim_points[corners[0]]['Pushrod Control Arm']:
-        # print 'value 1', value
-        # each corner has its own set of evaluations
-        post_eval_dict = OrderedDict([('Left Front', deepcopy(evaluations)),
+    # each corner has its own set of evaluations
+    post_eval_dict = OrderedDict([('Left Front', deepcopy(evaluations)),
                                   ('Right Front', deepcopy(evaluations)),
                                   ('Left Rear', deepcopy(evaluations)),
                                   ('Right Rear', deepcopy(evaluations))])
@@ -845,6 +843,8 @@ def mode_displacements(wheel_disp_list):
     CHANGE TO DICTIONARY INSTEAD OF LIST WHEN GIVEN OUT OF FOUR CORNER WHEEL DISP
     Wheel list in order lf, rf, lr, rr
     """
+
+
 def load_transfer(acceleration, weight, base, cg_height):
     """Calculate load transfer in either the longitudinal or lateral direction when given either trackwidth or wheelbase
     INCORPORATE LLTD MOTHER TRUCKER
@@ -950,3 +950,13 @@ def wheel_disp_compare_plot(dictionary, a_x, a_y, corner_weights_static, time, d
     plt.legend()
     plt.show()
     return lat_tire_force, long_tire_force
+
+
+def anti_squat_percent(ic_xz, wheel_center, wheel_base, center_gravity_height):
+    """Takes longitudinal instant center, wheel base, wheel center, and cgh, and calculates the percentage """
+    #  using angle finder from longitudinal instant center to wheel center.
+    as_angle = (two_d_horizontal_angle([ic_xz[0], ic_xz[1]], [wheel_center[0], wheel_center[2]])) * math.pi / 180
+    #  calculates anti-squat percent from tan(angle)*(WB/c of g height) * 100
+    as_tan = math.tan(as_angle)
+    as_percent = (as_tan / (center_gravity_height / wheel_base)) * 100
+    return as_percent
