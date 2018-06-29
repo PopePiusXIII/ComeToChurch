@@ -590,6 +590,8 @@ class Simulation(Ttk.Frame):
         corner = Ttk.StringVar(graph_selection_app)
         x_axis = Ttk.StringVar(graph_selection_app)
         y_axis = Ttk.StringVar(graph_selection_app)
+        fit = Ttk.BooleanVar(graph_selection_app)
+        fit.set(False)
         corner.set('Choose Corner')
         x_axis.set('x_axis')
         y_axis.set('y_axis')
@@ -608,7 +610,9 @@ class Simulation(Ttk.Frame):
         Ttk.Button(graph_selection_app, text='Graph',
                    command=lambda: Kin.scatter_plot(self.sim_eval_results[corner.get()][x_axis.get()],
                                                     self.sim_eval_results[corner.get()][y_axis.get()],
+                                                    fit.get(), 3,
                                                     x_axis.get(), y_axis.get())).grid()
+        Ttk.Checkbutton(graph_selection_app, text="fit", variable=fit).grid()
 
         graph_selection_app.mainloop()
 
