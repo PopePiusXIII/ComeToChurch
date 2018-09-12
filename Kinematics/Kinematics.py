@@ -545,13 +545,19 @@ def sim_evaluation(orig_points, sim_points, motion, *corners):
     return post_eval_dict
 
 
-def scatter_plot(x_axis, y_axis, *args):
+def scatter_plot(x_axis, y_axis, fit=False, power=3, *args):
     print x_axis
     print y_axis
+    if fit:
+        poly = np.polyfit(x_axis, y_axis, power)
+        plt.plot(x_axis, np.polyval(poly, x_axis),
+                 label="{three:5.2f}x^3+{two:5.2f}x^2+{one:5.2f}x+{c:5.2f}".format(three=poly[0],
+                                                                                   two=poly[1], one=poly[2], c=poly[3]))
     plt.scatter(x_axis, y_axis)
     plt.xlabel(args[0])
     plt.ylabel(args[1])
     # plt.gca().set_aspect('equal', adjustable='box')
+    plt.legend()
     plt.show()
     return
 
