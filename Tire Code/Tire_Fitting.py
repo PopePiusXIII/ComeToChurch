@@ -39,14 +39,3 @@ def least_square(slip_list, force_list):
                                                   [2, 3, 1.5 * max_val, 1, y_shift, 5]))
 
         return line.x
-
-
-
-
-
-
-
-
-
-
-

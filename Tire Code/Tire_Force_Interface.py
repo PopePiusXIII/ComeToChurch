@@ -41,8 +41,6 @@ class StartPage(tk.Frame):
         self.controller = controller
 
 
-
-
 class PageOne(tk.Frame):
 
     def __init__(self, parent, controller):
@@ -52,6 +50,7 @@ class PageOne(tk.Frame):
         button = tk.Button(self, text="Go to the start page",
                            command=lambda: controller.show_frame("StartPage"))
         button.pack()
+
 
 if __name__ == "__main__":
     app = SampleApp()
