@@ -25,7 +25,7 @@ class HarleyTires(Ttk.Tk):
         # -------------MENU BAR----------------------
         main_menu = Ttk.Menu(container)
         filemenu = Ttk.Menu(main_menu, tearoff=0)
-        sim_menu = Ttk.Menu(main_menu, tearoff=0)
+        # sim_menu = Ttk.Menu(main_menu, tearoff=0)
         filemenu.add_command(label='Add Tire', command=lambda: self.open())
         Ttk.Tk.config(self, menu=main_menu)
         main_menu.add_cascade(label='File', menu=filemenu)
@@ -58,7 +58,7 @@ class HarleyTires(Ttk.Tk):
 
 
 class StartPage(Ttk.Frame):
-    def __init__(self, parent, controller):
+    def __init__(self, parent):
 
         # ------------FRAMES-----------------
         Ttk.Frame.__init__(self, parent)
@@ -84,15 +84,17 @@ class StartPage(Ttk.Frame):
         # y_axis.set('y_axis')
         Ttk.Button(self.entry_frame, text='Update', command=lambda: self.grid_drop_downs()).grid(row=2, column=0)
         Ttk.Button(self.entry_frame, text='Graph', command=lambda:
-                   Fy.raw_slip_force_plot(self.tire_dict["Slip Angle (Steady)"][self.speed.get()][self.pressure.get()][self.camber.get()]
+                   Fy.raw_slip_force_plot(self.tire_dict["Slip Angle (Steady)"][self.speed.get()][self.pressure.get()]
+                                          [self.camber.get()]
                                           [self.slip_sign.get()][self.load.get()],
-                                          self.tire_dict["Fy (Steady)"][self.speed.get()][self.pressure.get()][self.camber.get()]
+                                          self.tire_dict["Fy (Steady)"][self.speed.get()][self.pressure.get()]
+                                          [self.camber.get()]
                                           [self.slip_sign.get()][self.load.get()], None, None, None, None
                                           )).grid(row=2, column=1)
 
     def grid_drop_downs(self):
         self.tire_dict = Fy.fy_data_collector(HarleyTires.file_paths[0])
-        data_name_options = self.tire_dict.keys()
+        # data_name_options = self.tire_dict.keys()
         tire_name_options = [HarleyTires.file_paths[0]]
         speed_options = self.tire_dict['Speed (Test)']
         slip_sign_options = self.tire_dict['Slip Sign (Test)']
@@ -128,10 +130,11 @@ class StartPage(Ttk.Frame):
 
 
 class PageOne(Ttk.Frame):
-    def __init__(self, parent, controller):
+    def __init__(self, parent):
 
         # FRAMES
         Ttk.Frame.__init__(self, parent)
+
 
 app = HarleyTires()
 app.mainloop()

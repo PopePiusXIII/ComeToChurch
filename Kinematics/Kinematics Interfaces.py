@@ -33,6 +33,7 @@ class HarleyTires(Ttk.Tk):
         filemenu.add_command(label='Open..', command=lambda: self.open())
         filemenu.add_command(label='Save as..', command=lambda: self.save_as(HarleyTires.full_car))
         filemenu.add_command(label='Export Solidworks..', command=lambda: self.export_solidworks(HarleyTires.full_car))
+        filemenu.add_command(label='Convert to Metric File..', command=lambda: self.convert_meters(HarleyTires.full_car))
         sim_menu.add_command(label=Simulation.__name__, command=lambda: self.show_frame(Simulation))
         sim_menu.add_command(label='Motec Csv Import', command=lambda: self.motec_import())
         Ttk.Tk.config(self, menu=main_menu)
@@ -80,6 +81,27 @@ class HarleyTires(Ttk.Tk):
                     file1.write("{0} ".format(num))
                 file1.write("\n")
             return
+    @staticmethod
+    def convert_meters(dictionary):
+        """Converts a points file from the standard inch system to meters"""
+        file_path = tkFileDialog.askopenfilename()
+        file1 = open(file_path, 'w')
+        file1.write('UNIVERSITY OF CENTRAL FLORIDA KINEMATIC SOFTWARE')
+        file1.write('\n{}CREATED BY: HARLEY HICKS'.format(' ' * 10))
+        file1.write('\n{}2017-2018 SEASON\n'.format(' ' * 13))
+        file1.write('\n{}Suspension Points\n\n'.format(' ' * 13))
+        for corner_key in dictionary.keys():
+            file1.write("\n{}{}{}\n".format('-' * 10, corner_key, '-' * 10, ))
+            for key in dictionary[corner_key].keys():
+                for num in dictionary[corner_key][key]:
+                    if corner_key != 'Performance Figures':
+                        location_key = dictionary[corner_key][key].index(num)
+                        dictionary[corner_key][key][location_key] = num * 0.0254
+                if len(key) < 15:
+                    file1.write("{0} \t\t{1}\n".format(key, dictionary[corner_key][key]))
+                elif len(key) >= 15:
+                    file1.write("{0} \t{1}\n".format(key, dictionary[corner_key][key]))
+
 
     @staticmethod
     def motec_import():

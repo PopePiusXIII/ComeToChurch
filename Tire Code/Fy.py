@@ -62,7 +62,8 @@ def fy_data_collector(file_path):
                                               OrderedDict([(str(camber_key),
                                                             OrderedDict([(str(slip_key),
                                                                         OrderedDict([(str(load_key),
-                                                                                    []) for load_key in possible_loads]))
+                                                                                    [])
+                                                                                     for load_key in possible_loads]))
                                                                          for slip_key in ['Negative', 'Positive']]))
                                                            for camber_key in possible_cambers]))
                                              for pressure_key in possible_pressures]))
