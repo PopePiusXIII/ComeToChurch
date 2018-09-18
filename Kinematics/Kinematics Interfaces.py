@@ -33,7 +33,7 @@ class HarleyTires(Ttk.Tk):
         filemenu.add_command(label='Open..', command=lambda: self.open())
         filemenu.add_command(label='Save as..', command=lambda: self.save_as(HarleyTires.full_car))
         filemenu.add_command(label='Export Solidworks..', command=lambda: self.export_solidworks(HarleyTires.full_car))
-        filemenu.add_command(label='Create Metric File..', command=lambda: self.convert_meters(HarleyTires.full_car))
+        filemenu.add_command(label='Convert to Metric File..', command=lambda: self.convert_meters(HarleyTires.full_car))
         sim_menu.add_command(label=Simulation.__name__, command=lambda: self.show_frame(Simulation))
         sim_menu.add_command(label='Motec Csv Import', command=lambda: self.motec_import())
         Ttk.Tk.config(self, menu=main_menu)

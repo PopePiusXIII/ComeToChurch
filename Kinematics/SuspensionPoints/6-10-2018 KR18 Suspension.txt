@@ -6,79 +6,79 @@ UNIVERSITY OF CENTRAL FLORIDA KINEMATIC SOFTWARE
 
 
 ----------Left Front----------
-Lower Aft 		0.0942594
-Lower Fore 		0.0942848
-Lower Out 		0.14605
-Upper Aft 		0.210439
-Upper Fore 		0.2104644
-Upper Out 		0.30861
-Tie Rod Chassis 	0.127
-Tie Rod Upright 	0.200787
-Wheel Center 		0.21971
-Pushrod Control Arm 	0.32385
-Pushrod Rocker 		0.56896
-Rocker Pivot Axis 	0.55245
-Rocker Pivot 		0.55245
-Damper Rocker 		0.5978652
-Roll Damper a 		0.58166
+Lower Aft 		[-25.0, 7.93, 3.711]
+Lower Fore 		[-17.605, 7.93, 3.712]
+Lower Out 		[-24.1, 22.27, 5.75]
+Upper Aft 		[-30.571, 9.851, 8.285]
+Upper Fore 		[-17.668, 9.85, 8.286]
+Upper Out 		[-24.875, 20.537, 12.15]
+Tie Rod Chassis 	[-19.5, 8.625, 5.0]
+Tie Rod Upright 	[-21.25, 22.397, 7.905]
+Wheel Center 		[-23.5, 23.5, 8.65]
+Pushrod Control Arm 	[-24.15, 19.456, 12.75]
+Pushrod Rocker 		[-24.15, 7.2, 22.4]
+Rocker Pivot Axis 	[-22.5, 5.312, 21.75]
+Rocker Pivot 		[-24.15, 5.312, 21.75]
+Damper Rocker 		[-24.15, 5.249, 23.538]
+Roll Damper a 		[-26.25, 5.125, 22.9]
 
 ----------Right Front----------
-Lower Aft 		0.0942594
-Lower Fore 		0.0942848
-Lower Out 		0.14605
-Upper Aft 		0.210439
-Upper Fore 		0.2104644
-Upper Out 		0.30861
-Tie Rod Chassis 	0.127
-Tie Rod Upright 	0.200787
-Wheel Center 		0.21971
-Pushrod Control Arm 	0.32385
-Pushrod Rocker 		0.56896
-Rocker Pivot Axis 	0.55245
-Rocker Pivot 		0.55245
-Damper Rocker 		0.5978652
-Roll Damper a 		0.52324
+Lower Aft 		[-25.0, -7.92, 3.711]
+Lower Fore 		[-17.605, -7.92, 3.712]
+Lower Out 		[-24.1, -22.27, 5.75]
+Upper Aft 		[-30.571, -9.851, 8.285]
+Upper Fore 		[-17.668, -9.85, 8.286]
+Upper Out 		[-24.875, -20.537, 12.15]
+Tie Rod Chassis 	[-19.5, -8.625, 5.0]
+Tie Rod Upright 	[-21.25, -22.397, 7.905]
+Wheel Center 		[-23.5, -23.5, 8.65]
+Pushrod Control Arm 	[-24.15, -19.456, 12.75]
+Pushrod Rocker 		[-24.15, -7.2, 22.4]
+Rocker Pivot Axis 	[-22.5, -5.312, 21.75]
+Rocker Pivot 		[-24.15, -5.312, 21.75]
+Damper Rocker 		[-24.15, -5.249, 23.538]
+Roll Damper a 		[-26.25, -5.125, 20.6]
 
 ----------Right Rear----------
-Lower Aft 		0.11176
-Lower Fore 		0.11176
-Lower Out 		0.13081
-Upper Aft 		0.265176
-Upper Fore 		0.280924
-Upper Out 		0.3159252
-Tie Rod Chassis 	0.27305
-Tie Rod Upright 	0.3159252
-Wheel Center 		0.21971
-Pushrod Control Arm 	0.1524
-Pushrod Rocker 		0.3429
-Rocker Pivot Axis 	0.323088
-Rocker Pivot 		0.323088
-Damper Rocker 		0.37973
-Roll Damper a 		0.287528
+Lower Aft 		[-91.75, -10.04, 4.4]
+Lower Fore 		[-78.39, -10.04, 4.4]
+Lower Out 		[-84.75, -21.5, 5.15]
+Upper Aft 		[-90.75, -8.625, 10.75]
+Upper Fore 		[-76.897, -11.882, 10.75]
+Upper Out 		[-84.25, -18.5, 12.438]
+Tie Rod Chassis 	[-91.234, -8.944, 10.75]
+Tie Rod Upright 	[-87.25, -18.5, 12.438]
+Wheel Center 		[-85.5, -23.0, 8.65]
+Pushrod Control Arm 	[-84.937, -20.0, 6.0]
+Pushrod Rocker 		[-84.937, -6.5, 13.5]
+Rocker Pivot Axis 	[-85.187, -5.5, 12.72]
+Rocker Pivot 		[-86.187, -5.5, 12.72]
+Damper Rocker 		[-84.937, -5.5, 14.95]
+Roll Damper a 		[-87.937, -5.06, 11.32]
 
 ----------Left Rear----------
-Lower Aft 		0.11176
-Lower Fore 		0.11176
-Lower Out 		0.13081
-Upper Aft 		0.265176
-Upper Fore 		0.280924
-Upper Out 		0.3159252
-Tie Rod Chassis 	0.27305
-Tie Rod Upright 	0.3159252
-Wheel Center 		0.21971
-Pushrod Control Arm 	0.1524
-Pushrod Rocker 		0.3429
-Rocker Pivot Axis 	0.323088
-Rocker Pivot 		0.323088
-Damper Rocker 		0.37973
-Roll Damper a 		0.358648
+Lower Aft 		[-91.75, 10.04, 4.4]
+Lower Fore 		[-78.39, 10.04, 4.4]
+Lower Out 		[-84.75, 21.5, 5.15]
+Upper Aft 		[-90.75, 8.625, 10.75]
+Upper Fore 		[-76.897, 11.882, 10.75]
+Upper Out 		[-84.25, 18.5, 12.438]
+Tie Rod Chassis 	[-91.234, 8.944, 10.75]
+Tie Rod Upright 	[-87.25, 18.5, 12.438]
+Wheel Center 		[-85.5, 23.0, 8.65]
+Pushrod Control Arm 	[-84.75, 20.0, 6.0]
+Pushrod Rocker 		[-84.937, 6.5, 13.5]
+Rocker Pivot Axis 	[-85.187, 5.5, 12.72]
+Rocker Pivot 		[-86.187, 5.5, 12.72]
+Damper Rocker 		[-84.937, 5.25, 14.95]
+Roll Damper a 		[-87.937, 5.06, 14.12]
 
 ----------Performance Figures----------
 Center of Gravity 	[-54.1, 0.0, 11.0]
 Weight 		[600.0]
 Spring Rate 		[450.0, 450.0, 450.0, 450.0, 0.0, 0.0, 0.0, 0.0]
 Motion Ratio 		[1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0, 1.0]
-Spring Corner 		['LF', 'RF', 'RR', 'LR', 'Front_Heave', 'Rear_Heave', 'Front_Roll', 'Rear_Roll']
+Spring Corner 		[LF, RF, RR, LR, Front_Heave, Rear_Heave, Front_Roll, Rear_Roll]
 Shims 		[0.0, 0.0, 0.0, 0.0]
 Lateral Tire Force 	[0.0, 0.0, 0.0, 0.0]
 Longitudinal Tire Force 	[600.0, 600.0, 0.0, 0.0]
