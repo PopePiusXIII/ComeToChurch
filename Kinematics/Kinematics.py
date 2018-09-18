@@ -340,9 +340,9 @@ def suspension_plot(ax, full_car_dict, planes_choice, instant_center_choice, *ke
         ax.plot(right_upper_control_arm[0], right_upper_control_arm[1], right_upper_control_arm[2], c='b')
         # Control Arm Planes
         ax.plot_surface(left_ucxx, left_ucyy, left_uczz)
-        ax.plot_surface(left_lcyy, left_lcxx, left_lczz)
+        #  ax.plot_surface(left_lcyy, left_lcxx, left_lczz)
         ax.plot_surface(right_ucxx, right_ucyy, right_uczz)
-        ax.plot_surface(right_lcyy, right_lcxx, right_lczz)
+        #  ax.plot_surface(right_lcyy, right_lcxx, right_lczz)
 
     # Instant center lines
     if instant_center_choice:   # simply looking for whether Instant Center choice is true or not
