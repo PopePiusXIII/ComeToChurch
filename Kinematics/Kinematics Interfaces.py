@@ -546,7 +546,6 @@ class Simulation(Ttk.Frame):
                                                                self.motec_data['Lat Accel'],
                                                                np.array([140, 140, 160, 160]), self.motec_data['Time'],
                                                                self.motec_data['Damper Pos FL'],
-                                                               self.motec_data['Damper Pos FR'],
                                                                self.motec_data['Damper Pos LR'],
                                                                self.motec_data['Damper Pos RR'],
                                                                self.motec_data['Velocity']
@@ -564,7 +563,7 @@ class Simulation(Ttk.Frame):
                 Ttk.Label(self.wheel_disp_entry_frame, text=keys).grid(row=3+i, column=0)
                 self.entry_boxes[keys] = Ttk.Entry(self.wheel_disp_entry_frame, textvariable=self.pbind[keys], width=75)
                 self.entry_boxes[keys].grid(row=3+i, column=1)
-                self.entry_boxes[keys].delete(0, 75)    # clear entry box
+                self.entry_boxes[keys].delete(0, 78)    # clear entry box
                 entry_list = dictionary['Performance Figures'][keys]
                 string = ', '.join(str(x) for x in entry_list)
                 self.entry_boxes[keys].insert(0, string)
@@ -578,7 +577,7 @@ class Simulation(Ttk.Frame):
                     return string.translate(None, ' ')
             for keys in dictionary['Performance Figures'].keys():
                 dictionary['Performance Figures'][keys] = map(check_ifdigit, self.pbind[keys].get().split(','))
-                self.entry_boxes[keys].delete(0, 75)  # clear entry box
+                self.entry_boxes[keys].delete(0, 78)  # clear entry box
                 entry_list = dictionary['Performance Figures'][keys]
                 string = ', '.join(str(x) for x in entry_list)
                 self.entry_boxes[keys].insert(0, string)
