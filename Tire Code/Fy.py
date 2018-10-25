@@ -378,16 +378,19 @@ def all_channels_vs_time(data, color):
 def raw_slip_force_plot(slip_list, force_list, color, label, x_label, y_label):
     """Scatter plot slip vs force
      User can pass color and label info as well"""
+    length = len(slip_list)
     if color is None:
-        color = 'b'
+        color = ['r', 'b', 'y', 'g']
+        color = colors[:length]
     if label is None:
-        label = None
+        label = [None]*length
+        label = label[:length]
     if x_label is None:
         x_label = None
-
     if y_label is None:
         y_label = None
-    plt.scatter(slip_list, force_list, facecolor='none', edgecolors=color, label=label)
+    for i in range(len(slip_list)):
+        plt.scatter(slip_list[i], force_list[i], facecolor='none', edgecolors=color[i], label=label[i])
     plt.xlabel(x_label)
     plt.ylabel(y_label)
     plt.show()
