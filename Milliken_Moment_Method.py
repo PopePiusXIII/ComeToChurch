@@ -1,4 +1,6 @@
 from __future__ import division
+import sys
+sys.path.insert(0, 'C:\Users\\harle\\Documents\\ComeToChurch\\Tire Code')
 import Fy as Fy
 import MRA_Norm as mra_norm
 import matplotlib.pyplot as plt
@@ -210,7 +212,7 @@ load_rf = 130
 load_rr = 130
 weight = load_lf + load_lr + load_rf + load_rr
 
-data = Fy.fy_data_collector('C:\Users\harhi\Documents\KR18\Suspension\Tires\TTC Code\Round 6\RawData_13inch_Cornering_ASCII_USCS\A1654raw12.dat')
+data = Fy.fy_data_collector("C:\Users\harle\Documents\ComeToChurch\Raw Data\Round 6\RawData_13inch_Cornering_ASCII_USCS\A1654raw12.dat")
 coefff, mue_sensitivity, stiffness_sensitivity,  = mra_norm.non_dim_slip_angle_force_fit(data["Slip Angle (Steady)"]['25']['12.0']['0'],
                                                                                          data['Fy (Steady)']['25']['12.0']['0'],
                                                                                          data['Fz (Steady)']['25']['12.0']['0'])
